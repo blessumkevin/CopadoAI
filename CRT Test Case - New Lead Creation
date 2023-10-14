@@ -1,0 +1,25 @@
+Create a CRT test that adds a new lead to Salesforce.
+
+
+
+
+EXPECTED RESULT:
+
+*** Test Cases ***
+Add New Lead
+    [Tags]    Lead
+    Launch App    Sales
+    Click Text    Leads
+    Click Text    New Lead
+    Type Text    First Name    John
+    Type Text    Last Name    Doe
+    Type Text    Company    Acme Corp
+    Type Text    Title    Manager
+    Type Text    Email    john.doe@acme.com
+    Type Text    Phone    +12258443456789
+    Click Text    Save
+    Verify Text    John Doe
+    Verify Text    Acme Corp
+    Verify Text    Manager
+    Verify Text    john.doe@acme.com
+    Verify Text    +12258443456789

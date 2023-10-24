@@ -1,0 +1,53 @@
+Can you convert the below Selenium script into a Copado Robotic Testing script using keywords and text locators?
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+
+public class LoginAutomation {
+@Test
+    public void login() {
+        //Create web driver
+        System.setProperty("webdriver.chrome.driver", "path of driver");
+        WebDriver driver=new ChromeDriver();
+
+        //Launch browser and navigate to base URL
+        driver.manage().window().maximize();
+        driver.get("https://www.login.salesforce.com/");
+
+        //Declare web elements to interact with during test scenario
+        //Find username nad password by id
+        WebElement username=driver.findElement(By.id("username"));
+        WebElement password=driver.findElement(By.id("password"));
+        //Find login button by name
+        WebElement login=driver.findElement(By.name("log in"));
+        //Find applauncher by class
+        WebElement appLauncher=driver.findElement(By.class("appLauncher"));
+        //Find app search by label
+        WebElement appSearch=driver.findElement(By.label("Search apps and items..."))
+        //Find the sales app in search by xpath
+        WebElement salesApp=driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[3]/div[1]/div[2]/one-app-launcher-menu/div/div[1]/one-app-launcher-menu-item[2]/a/div/lightning-formatted-rich-text/span/p/b"))
+
+        //Send username
+        username.sendKeys("demo@copado.com");
+        //Send password
+        password.sendKeys("password");
+        //Click login button
+        login.click();
+        sleep(10);
+        //Click app launcher
+        appLauncher.click();
+        //Type Search 
+        appSearch.sendKeys("Sales");
+        salesApp.click();
+    
+        //We should be on the home page 
+        String expected="https://slockard-dev-ed.lightning.force.com/lightning/page/home";
+        String actual= driver.getCurrentUrl();
+        Assert.assertEquals(expected,actual);
+    }
+}

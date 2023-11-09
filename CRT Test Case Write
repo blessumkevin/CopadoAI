@@ -1,8 +1,8 @@
-Write a CRT Script for the following test case -
+Write a CRT Script for the following test case using the Qweb library commands
 Test Case for Update AccountTrigger logic:
 Objective: To validate that the AccountTrigger logic includes validation for the region field.
 Steps:
-Create a new Account record without selecting a region.
-Save the record and verify that an error message is displayed, indicating that the region field is required.
-Update the Account record by selecting a valid region.
-Save the record and ensure that it is successfully saved without any errors.
+1) Create a new Account record without selecting a region.
+2) Save the record and verify that an error message is displayed, indicating that the region field is required.
+3) Update the Account record by selecting a valid region.
+4) Save the record and ensure that it is successfully saved without any errors.
